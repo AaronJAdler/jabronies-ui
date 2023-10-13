@@ -57,7 +57,6 @@ export class NavBarComponent {
               this.progress = Math.round((100 * event.loaded) / event.total);
             } else if (event instanceof HttpResponse) {
               this.message = event.body.message;
-              this.imageInfos = this.uploadService.getFiles();
             }
           },
           error: (err: any) => {
