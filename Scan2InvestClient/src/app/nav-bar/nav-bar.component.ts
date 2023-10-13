@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { FileUploadService } from '../image-upload/image-upload.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { StockInformation } from '../app.component';
 
 @Component({
   selector: 'app-nav-bar',
@@ -15,6 +16,8 @@ export class NavBarComponent {
   message = '';
   preview = '';
   imageInfos?: Observable<any>;
+
+  @Input() StockInformationItems!: StockInformation[];
 
   constructor(private uploadService: FileUploadService) { }
 
@@ -57,6 +60,7 @@ export class NavBarComponent {
               this.progress = Math.round((100 * event.loaded) / event.total);
             } else if (event instanceof HttpResponse) {
               this.message = event.body.message;
+              this.StockInformationItems.push(JSON.parse(this.message));
             }
           },
           error: (err: any) => {
