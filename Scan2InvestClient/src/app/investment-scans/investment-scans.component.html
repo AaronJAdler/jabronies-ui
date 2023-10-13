@@ -1,0 +1,19 @@
+<div class="InvestmentItems">
+    <div *ngIf="!this.StockInformations">Investment details will appear here once an image has been scanned.</div>
+    <div *ngIf="!!this.StockInformations">
+        <div class="InvestmentItem" *ngFor="let item of this.StockInformations">
+            <div class="InvestmentItem-header">{{item.company}} - {{item.brand_name_detected}}</div>
+            <div class="InvestmentItem-body" *ngFor="let option of item.investment_options">
+                <span class="split">
+                        <span class="detail">Region</span><span class="value">{{option.region}}</span>
+                        <span class="detail">Stock Price</span><span class="value">{{option.stock_price}}</span>
+                </span>
+                <span class="split">
+                        <span class="detail">Symbol</span><span class="value">{{option.symbol}}</span>
+                        <span class="detail">Type</span><span class="value">{{option.type}}</span>
+                </span>
+            </div>
+        </div>
+
+    </div>
+</div>
