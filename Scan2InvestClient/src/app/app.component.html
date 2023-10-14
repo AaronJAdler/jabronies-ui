@@ -1,5 +1,5 @@
 <div class="AppContainer">
-  <app-nav-bar></app-nav-bar>
-  <div *ngIf="this.StockInformationItems.length == 0" class="Instructions"> Please upload a picture to scan for investment opportunities. </div>
+  <app-nav-bar [StockInformationItems]="StockInformationItems"></app-nav-bar>
+  <div *ngIf="this.StockInformationItems.length == 0" class="Instructions"> Please upload a picture to scan for investment opportunities. (Top Right)</div>
   <app-investment-scans *ngIf="this.StockInformationItems.length > 0" [StockInformations]="StockInformationItems"></app-investment-scans>
 </div>
