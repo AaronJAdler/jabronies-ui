@@ -56,11 +56,12 @@ export class NavBarComponent {
 
         this.uploadService.upload(this.currentFile).subscribe({
           next: (event: any) => {
+            console.log(event);
             if (event.type === HttpEventType.UploadProgress) {
               this.progress = Math.round((100 * event.loaded) / event.total);
             } else if (event instanceof HttpResponse) {
-              this.message = event.body.message;
-              this.StockInformationItems.push(JSON.parse(this.message));
+              this.message = event.body;
+              this.StockInformationItems.push(event.body);
             }
           },
           error: (err: any) => {

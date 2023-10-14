@@ -10,7 +10,7 @@ export class AppComponent {
   public StockInformationItems: StockInformation[] = [];
 
   constructor(){
-    this.StockInformationItems.push(new StockInformation("Brand", "Company", "ImageFileName", new Array<InvestmentOption>(new InvestmentOption("Region", "StockPrice", "Symbol", "Type"))));
+    //this.StockInformationItems.push(new StockInformation("Brand", "Company", "ImageFileName", new Array<InvestmentOption>(new InvestmentOption("Region", "StockPrice", "Symbol", "Type"))));
   }
 }
 
